@@ -78,6 +78,8 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
+import { BarChart2, Layers, Diamond, Grid, PieChart } from "lucide-react";
+import React from "react";
 
 export const componentCategories = [
   { id: 'all', name: 'All Components' },
@@ -87,6 +89,7 @@ export const componentCategories = [
   { id: 'feedback', name: 'Feedback' },
 ];
 
+// Extended component registry with additional properties needed by PatternCategoryGrid
 export const componentRegistry = [
   {
     name: "Badge",
@@ -96,11 +99,21 @@ export const componentRegistry = [
         Label
       </Badge>
     ),
+    id: "badge",
+    title: "Badge",
+    description: "Small visual indicator for statuses or categories",
+    color: "#00F5FF",
+    icon: <BarChart2 className="w-5 h-5" />
   },
   {
     name: "Button",
     source: "ui/button.tsx",
     component: <Button>Button</Button>,
+    id: "button",
+    title: "Button",
+    description: "Clickable element for user interactions",
+    color: "#B026FF",
+    icon: <Layers className="w-5 h-5" />
   },
   {
     name: "Calendar",
@@ -112,6 +125,11 @@ export const componentRegistry = [
         onSelect={() => {}}
       />
     ),
+    id: "calendar",
+    title: "Calendar",
+    description: "Date picker for selecting dates",
+    color: "#FAFF00",
+    icon: <Diamond className="w-5 h-5" />
   },
   {
     name: "Card",
@@ -126,6 +144,11 @@ export const componentRegistry = [
         <CardFooter>Card Footer</CardFooter>
       </Card>
     ),
+    id: "card",
+    title: "Card",
+    description: "Flexible container for grouping related content",
+    color: "#00F5FF",
+    icon: <Grid className="w-5 h-5" />
   },
   {
     name: "Checkbox",

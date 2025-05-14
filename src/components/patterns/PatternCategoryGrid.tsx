@@ -26,11 +26,11 @@ const PatternCategoryGrid = ({ filter = "all" }: PatternCategoryGridProps) => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredComponents.map((component, index) => (
           <PatternCard 
-            key={component.id}
-            title={component.title}
-            description={component.description}
-            color={component.color}
-            icon={component.icon}
+            key={component.id || component.name}
+            title={component.title || component.name}
+            description={component.description || "UI component"}
+            color={component.color || "#00F5FF"}
+            icon={component.icon || null}
             component={React.isValidElement(component.component) ? component.component : null}
             index={index}
             onClick={() => openComponent(component)}
