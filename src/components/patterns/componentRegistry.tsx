@@ -1,3 +1,4 @@
+
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
@@ -81,6 +82,7 @@ import {
 import { BarChart2, Layers, Diamond, Grid, PieChart } from "lucide-react";
 import React from "react";
 
+// Define categories once
 export const componentCategories = [
   { id: 'all', name: 'All Components' },
   { id: 'forms', name: 'Form Elements' },
@@ -360,8 +362,9 @@ export const componentRegistry = [
     source: "ui/toaster.tsx",
     component: <Toaster />,
   },
-]
+];
 
+// Define filtering function once
 export const getFilteredComponents = (filter: string) => {
   if (filter === 'all') return componentRegistry;
   
@@ -382,7 +385,3 @@ export const getFilteredComponents = (filter: string) => {
     }
   });
 };
-
-export { getFilteredComponents }
-
-export { componentCategories }
