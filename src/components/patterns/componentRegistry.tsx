@@ -79,6 +79,14 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 
+export const componentCategories = [
+  { id: 'all', name: 'All Components' },
+  { id: 'forms', name: 'Form Elements' },
+  { id: 'layout', name: 'Layout' },
+  { id: 'navigation', name: 'Navigation' },
+  { id: 'feedback', name: 'Feedback' },
+];
+
 export const componentRegistry = [
   {
     name: "Badge",
@@ -330,3 +338,28 @@ export const componentRegistry = [
     component: <Toaster />,
   },
 ]
+
+export const getFilteredComponents = (filter: string) => {
+  if (filter === 'all') return componentRegistry;
+  
+  // Add your filtering logic here based on component categories
+  return componentRegistry.filter(component => {
+    // This is a simple example - you'll need to add proper category assignments to components
+    switch (filter) {
+      case 'forms':
+        return ['Input', 'Textarea', 'Checkbox', 'RadioGroup', 'Select'].includes(component.name);
+      case 'layout':
+        return ['Card', 'Separator', 'ScrollArea'].includes(component.name);
+      case 'navigation':
+        return ['Button', 'DropdownMenu', 'Tooltip'].includes(component.name);
+      case 'feedback':
+        return ['Progress', 'Toast', 'Dialog'].includes(component.name);
+      default:
+        return true;
+    }
+  });
+};
+
+export { getFilteredComponents }
+
+export { componentCategories }
